@@ -5,88 +5,114 @@ Sitio web corporativo estático para NODO Soporte & Redes, empresa de mantenimie
 computadores y equipos de oficina con sede en Bogotá. Desplegado en GitHub Pages vía
 `automatizacion-it`.
 
+## Repositorio
+- **GitHub:** `https://github.com/automatizacion-it/nodo-web`
+- **Live:** `https://automatizacion-it.github.io/nodo-web/`
+- **Rama:** `main` (raíz `/`)
+
 ## Stack
 - Vanilla HTML5 / CSS3 / JS ES5 (sin frameworks, sin npm)
 - GitHub Pages (rama `main`, carpeta raíz)
+- RSS client-side vía `api.rss2json.com` (10k req/día gratis)
 - Fuentes: Google Fonts (Big Shoulders Display · Archivo · Chivo Mono)
 
 ## Estructura de archivos
 ```
-index.html        # Inicio: hero + 8 servicios + proceso + contacto
-noticias.html     # Noticias tech: cuántica, NVIDIA, Intel vs AMD
-css/styles.css    # Tokens de diseño (paleta T568B UTP) + layout
-js/main.js        # Patch panel SVG, IntersectionObserver reveals, nav móvil
-CLAUDE.md         # Este archivo
-README.md         # Guía de personalización y despliegue
+nodo-web/
+├── index.html        # Inicio: hero patch panel + 8 servicios + proceso + contacto
+├── noticias.html     # Noticias tech: cuántica, NVIDIA, Intel vs AMD (estático)
+├── marcas.html       # RSS: APC/Schneider, Tripp Lite/Eaton, solar, networking
+├── gobierno.html     # RSS: MinTIC, Colombia Digital, SECOP + portales directos
+├── tips.html         # 6 tips fijos NODO + RSS: Krebs, Bleeping, THN, Ars Technica
+├── css/
+│   ├── styles.css    # Tokens de diseño (paleta T568B UTP) + layout global
+│   └── rss.css       # Estilos canales RSS: skeletons, cards, tips, portales
+├── js/
+│   ├── main.js       # Patch panel SVG animado, reveals, nav móvil, año footer
+│   └── rss.js        # Motor RSS: fetch → rss2json → cards con fecha relativa ES
+├── CLAUDE.md         # Este archivo
+└── README.md         # Guía de personalización y despliegue
 ```
 
+## Navbar (7 ítems — igual en todas las páginas)
+```
+Servicios · Cómo trabajamos · Tech · Marcas · Gobierno TI · Tips · Contacto
+```
+- `index.html` → anclas internas (`#servicios`, `#proceso`, `#contacto`)
+- Páginas secundarias → `index.html#servicios`, `index.html#proceso`, `index.html#contacto`
+- Cada página tiene `class="active"` en su propio enlace
+- Menú hamburguesa responsive activado por `#navToggle` en `main.js`
+
 ## Paleta (código de colores T568B)
-| Token        | Hex       | Concepto         |
-|--------------|-----------|------------------|
-| `--ink`      | `#1B2733` | Panel / texto    |
-| `--naranja`  | `#F0731F` | Par 1-2          |
-| `--verde`    | `#16A06B` | Par 3-6          |
-| `--azul`     | `#2D6CDF` | Par 4-5          |
-| `--cafe`     | `#8C5A3C` | Par 7-8          |
-| `--wa`       | `#22B05A` | WhatsApp         |
+| Token       | Hex       | Concepto UTP  |
+|-------------|-----------|---------------|
+| `--ink`     | `#1B2733` | Panel / texto |
+| `--paper`   | `#F4F6F8` | Fondo         |
+| `--naranja` | `#F0731F` | Par 1-2       |
+| `--verde`   | `#16A06B` | Par 3-6       |
+| `--azul`    | `#2D6CDF` | Par 4-5       |
+| `--cafe`    | `#8C5A3C` | Par 7-8       |
+| `--wa`      | `#22B05A` | WhatsApp      |
+
+## Tipografías
+| Rol      | Familia               | Uso                        |
+|----------|-----------------------|----------------------------|
+| Display  | Big Shoulders Display | H1, H2, H3, brand name     |
+| Body     | Archivo               | Párrafos, nav, botones     |
+| Mono     | Chivo Mono            | Eyebrows, etiquetas, ports |
 
 ## Datos del cliente
 - **Empresa:** NODO Soporte & Redes
 - **WhatsApp:** 3502605543 → `wa.me/573502605543`
 - **Correo:** contacto@nodosoporte.com *(pendiente real)*
 - **Ciudad:** Bogotá, Colombia
+- **Cobertura:** Bogotá, Soacha, Chía, Mosquera, Funza
 
-## Convenciones
-- Todos los SVG son inline (sin archivos externos)
-- Los íconos de servicios van en `.port-icon svg` con `stroke` en lugar de `fill`
-- Las fotos reales reemplazan el panel SVG del hero cuando el cliente las entregue
+## Cómo funciona el RSS
+- Cada `<section class="rss-channel">` lleva:
+  - `data-feed="URL_rss2json"` — endpoint de rss2json con el feed codificado
+  - `data-color="var(--x)"` — color de acento para las cards
+  - `data-fallback="URL"` — enlace directo si el feed falla (CORS / servidor caído)
+- `rss.js` carga todos los canales al iniciar, escalonados 300ms entre sí
+- Muestra skeletons animados mientras carga
+- Fechas relativas en español: "hace 3 h", "hace 2 días", etc.
+- Fallo silencioso: muestra enlace directo a la fuente si rss2json no responde
+
+## Feeds configurados
+| Página    | Canal                | Feed origen              |
+|-----------|----------------------|--------------------------|
+| marcas    | Schneider Electric   | se.com/rss/news          |
+| marcas    | Data Center Knowledge| feedburner               |
+| marcas    | PV Magazine LATAM    | pv-magazine-latam.com    |
+| marcas    | Network World        | feedburner               |
+| gobierno  | MinTIC               | mintic.gov.co            |
+| gobierno  | Colombia Digital     | colombiadigital.net      |
+| gobierno  | Semana Tecnología    | semana.com               |
+| gobierno  | Colombia Compra      | colombiacompra.gov.co    |
+| tips      | Krebs on Security    | krebsonsecurity.com      |
+| tips      | Bleeping Computer    | bleepingcomputer.com     |
+| tips      | The Hacker News      | feedburner               |
+| tips      | Ars Technica         | arstechnica.com          |
+
+## Convenciones de código
+- SVG siempre inline (sin archivos externos ni `<img>`)
+- Íconos de servicios: `stroke` en lugar de `fill` (excepto logos WA)
+- CSS: tokens en `:root`, sin !important, selectores de clase simples
+- JS: ES5 estricto (`"use strict"`), sin arrow functions, sin let/const
 - Responsive: 4 col → 2 col (980px) → 1 col (680px)
+- `prefers-reduced-motion` respetado en animaciones y skeleton
 
-## Pendiente
-- [ ] Fotos reales de instalaciones del cliente
-- [ ] Logo definitivo (favicon + Open Graph)
+## Historial de cambios
+| Commit | Descripción |
+|--------|-------------|
+| feat: sitio inicial | index.html + noticias.html — hero patch panel, 8 servicios, proceso, contacto |
+| feat: páginas RSS | marcas.html + gobierno.html + tips.html + rss.css + rss.js |
+| fix: navbar completo | 7 ítems en las 5 páginas con `class="active"` por página |
+
+## Pendiente (próximos issues)
+- [ ] Fotos reales de instalaciones (reemplazar panel SVG del hero)
+- [ ] Logo definitivo — favicon SVG + Open Graph image 1200×630
 - [ ] Correo real del cliente
-- [ ] Página RSS dinámica (GitHub Actions + Claude API — mismo patrón que `webcorporativa`)
-- [ ] Formulario de contacto (Formspree o similar, sin backend)
-
-## Historial de issues
-| # | Descripción | Estado |
-|---|-------------|--------|
-| — | Sitio inicial con 8 servicios + noticias tech | ✅ Cerrado en commit inicial |
-
-## Actualización: páginas RSS (segunda fase)
-
-### Nuevos archivos
-```
-marcas.html       # RSS: APC/Schneider, Tripp Lite/Eaton, solar, networking
-gobierno.html     # RSS: MinTIC, Colombia Digital, Semana tech, SECOP + portales directos
-tips.html         # 6 tips estáticos escritos por NODO + 4 feeds RSS: Krebs, Bleeping Computer, The Hacker News, Ars Technica
-css/rss.css       # Estilos para páginas RSS: skeletons, cards, tips, portales gobierno
-js/rss.js         # Motor RSS client-side vía api.rss2json.com — no requiere backend
-```
-
-### Cómo funciona el RSS
-- Cada `<section class="rss-channel">` lleva `data-feed="URL_rss2json"` y `data-color="var(--x)"`
-- `rss.js` lee todos los canales al cargar y los puebla de forma escalonada (300ms entre llamadas)
-- Si un feed falla (CORS, servidor caído), muestra mensaje con `data-fallback` al portal directo
-- rss2json.com tiene 10 000 req/día gratis — suficiente para tráfico normal
-
-### Feeds configurados
-| Página | Canal | Feed origen |
-|--------|-------|-------------|
-| marcas | Schneider Electric | se.com/rss/news |
-| marcas | Data Center Knowledge | feedburner |
-| marcas | PV Magazine LATAM | pv-magazine-latam.com |
-| marcas | Network World | feedburner |
-| gobierno | MinTIC | mintic.gov.co |
-| gobierno | Colombia Digital | colombiadigital.net |
-| gobierno | Semana Tecnología | semana.com |
-| gobierno | Colombia Compra | colombiacompra.gov.co |
-| tips | Krebs on Security | krebsonsecurity.com |
-| tips | Bleeping Computer | bleepingcomputer.com |
-| tips | The Hacker News | feedburner |
-| tips | Ars Technica | arstechnica.com |
-
-### Pendiente (issues futuros)
-- [ ] Agregar clave API rss2json PRO si el tráfico sube (50k req/día — $9/mes)
-- [ ] Migrar a GitHub Actions + Claude API para cachear RSS como JSON estático (sin depender de rss2json)
+- [ ] Formulario de contacto (Formspree — sin backend)
+- [ ] Migrar RSS a GitHub Actions + Claude API (cachear JSON estático, sin rss2json)
+- [ ] Dominio propio cuando el cliente lo decida
