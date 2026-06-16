@@ -53,3 +53,40 @@ README.md         # Guía de personalización y despliegue
 | # | Descripción | Estado |
 |---|-------------|--------|
 | — | Sitio inicial con 8 servicios + noticias tech | ✅ Cerrado en commit inicial |
+
+## Actualización: páginas RSS (segunda fase)
+
+### Nuevos archivos
+```
+marcas.html       # RSS: APC/Schneider, Tripp Lite/Eaton, solar, networking
+gobierno.html     # RSS: MinTIC, Colombia Digital, Semana tech, SECOP + portales directos
+tips.html         # 6 tips estáticos escritos por NODO + 4 feeds RSS: Krebs, Bleeping Computer, The Hacker News, Ars Technica
+css/rss.css       # Estilos para páginas RSS: skeletons, cards, tips, portales gobierno
+js/rss.js         # Motor RSS client-side vía api.rss2json.com — no requiere backend
+```
+
+### Cómo funciona el RSS
+- Cada `<section class="rss-channel">` lleva `data-feed="URL_rss2json"` y `data-color="var(--x)"`
+- `rss.js` lee todos los canales al cargar y los puebla de forma escalonada (300ms entre llamadas)
+- Si un feed falla (CORS, servidor caído), muestra mensaje con `data-fallback` al portal directo
+- rss2json.com tiene 10 000 req/día gratis — suficiente para tráfico normal
+
+### Feeds configurados
+| Página | Canal | Feed origen |
+|--------|-------|-------------|
+| marcas | Schneider Electric | se.com/rss/news |
+| marcas | Data Center Knowledge | feedburner |
+| marcas | PV Magazine LATAM | pv-magazine-latam.com |
+| marcas | Network World | feedburner |
+| gobierno | MinTIC | mintic.gov.co |
+| gobierno | Colombia Digital | colombiadigital.net |
+| gobierno | Semana Tecnología | semana.com |
+| gobierno | Colombia Compra | colombiacompra.gov.co |
+| tips | Krebs on Security | krebsonsecurity.com |
+| tips | Bleeping Computer | bleepingcomputer.com |
+| tips | The Hacker News | feedburner |
+| tips | Ars Technica | arstechnica.com |
+
+### Pendiente (issues futuros)
+- [ ] Agregar clave API rss2json PRO si el tráfico sube (50k req/día — $9/mes)
+- [ ] Migrar a GitHub Actions + Claude API para cachear RSS como JSON estático (sin depender de rss2json)

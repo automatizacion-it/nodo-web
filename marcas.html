@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marcas y fabricantes — NODO Soporte &amp; Redes</title>
+<meta name="description" content="Novedades de APC, Tripp Lite, Schneider Electric, energía solar y fabricantes de infraestructura tecnológica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/rss.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B2733'/><rect x='8' y='10' width='16' height='12' rx='2' fill='none' stroke='%23F0731F' stroke-width='2'/><rect x='13' y='6' width='6' height='4' fill='%23F0731F'/></svg>">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="NODO inicio">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="6" fill="var(--ink)"/>
+        <rect x="8" y="12" width="16" height="11" rx="2" fill="none" stroke="var(--naranja)" stroke-width="2.2"/>
+        <rect x="13" y="7" width="6" height="5" fill="var(--naranja)"/>
+      </svg>
+      <span class="brand-name">NODO<small>Soporte &amp; Redes</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="noticias.html">Tech</a>
+      <a href="marcas.html" class="active">Marcas</a>
+      <a href="gobierno.html">Gobierno TI</a>
+      <a href="tips.html">Tips</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-wa header-cta" href="https://wa.me/573502605543" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+      WhatsApp
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="rss-hero" style="--hero-accent:var(--naranja)">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="led"></span> Actualización en tiempo real · RSS</p>
+    <h1>Marcas &amp; <em>Fabricantes</em></h1>
+    <p class="lead">Novedades directas de APC, Tripp Lite, Schneider Electric, energía solar y los fabricantes de infraestructura que instalamos y mantenemos.</p>
+  </div>
+</section>
+
+<!-- ===== CANALES ===== -->
+<main class="rss-main">
+  <div class="wrap">
+
+    <!-- APC / Schneider Electric -->
+    <section class="rss-channel reveal" data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.se.com%2Fww%2Fen%2Frss%2Fnews.xml&count=4" data-color="var(--naranja)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--naranja)">APC · Schneider Electric</span>
+        <h2>Protección eléctrica y UPS</h2>
+        <p class="ch-desc">Nuevos productos, firmware y noticias de la marca líder en UPS y protección eléctrica.</p>
+      </div>
+      <div class="ch-grid" id="feed-apc">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- Tripp Lite / Eaton -->
+    <section class="rss-channel reveal" data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.feedburner.com%2FDatacenterKnowledge&count=4" data-color="var(--azul)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--azul)">Tripp Lite · Eaton · Data Center</span>
+        <h2>Infraestructura de potencia</h2>
+        <p class="ch-desc">Tendencias en UPS industriales, PDU, energía de respaldo y gestión de data centers.</p>
+      </div>
+      <div class="ch-grid" id="feed-tripplite">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- Energía Solar -->
+    <section class="rss-channel reveal" data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fpv-magazine-latam.com%2Ffeed%2F&count=4" data-color="var(--verde)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--verde)">Solar · Energía renovable</span>
+        <h2>Facility Solar y fotovoltaica</h2>
+        <p class="ch-desc">Paneles, inversores, baterías y regulación solar en Latinoamérica. PV Magazine en español.</p>
+      </div>
+      <div class="ch-grid" id="feed-solar">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- Networking / Cisco / TP-Link -->
+    <section class="rss-channel reveal" data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.feedburner.com%2FNetworkWorld&count=4" data-color="var(--cafe)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--cafe)">Cisco · TP-Link · Networking</span>
+        <h2>Equipos de red y conectividad</h2>
+        <p class="ch-desc">Switches, routers, WiFi empresarial y tendencias de red de los fabricantes que usamos.</p>
+      </div>
+      <div class="ch-grid" id="feed-networking">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<!-- CTA -->
+<section class="news-teaser">
+  <div class="wrap news-teaser-inner reveal">
+    <div>
+      <p class="eyebrow eyebrow-light">¿Necesita un equipo específico?</p>
+      <h2>Conseguimos e instalamos lo que necesita.</h2>
+      <p>APC, Tripp Lite, Ubiquiti, TP-Link, paneles solares — suministro, instalación y garantía.</p>
+    </div>
+    <a class="btn btn-wa" href="https://wa.me/573502605543?text=Hola%2C%20necesito%20cotizar%20un%20equipo" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+      Cotizar ahora
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year"></span> NODO Soporte &amp; Redes · Bogotá, Colombia</p>
+    <p class="mono">RSS LIVE · ACTUALIZADO AUTOMÁTICAMENTE <span class="led led-green"></span></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573502605543" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+<script src="js/rss.js"></script>
+</body>
+</html>

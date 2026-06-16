@@ -1,0 +1,245 @@
+/* ============================================================
+   rss.css — Estilos para páginas de RSS y tips
+   NODO Soporte & Redes
+   ============================================================ */
+
+/* ---------- Hero RSS ---------- */
+.rss-hero {
+  padding: 4rem 0 2.5rem;
+  border-bottom: 3px solid var(--hero-accent, var(--naranja));
+}
+.rss-hero h1 { margin-top: .5rem; }
+.rss-hero .lead { margin-top: 1rem; }
+
+/* ---------- Aviso CORS ---------- */
+.cors-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: .9rem;
+  background: #FFF8F0;
+  border: 1px solid #F0D4B0;
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0 0;
+  font-size: .88rem;
+  color: #7A4A10;
+}
+.cors-notice svg { width: 20px; height: 20px; flex-shrink: 0; margin-top: 1px; }
+
+/* ---------- Canal RSS ---------- */
+.rss-main { padding: 3rem 0 4rem; }
+.rss-channel { margin-bottom: 3.5rem; }
+.rss-channel + .rss-channel { border-top: 1px solid var(--line); padding-top: 3rem; }
+
+.ch-head { margin-bottom: 1.5rem; }
+.ch-head h2 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: .4rem; }
+.ch-desc { font-size: .92rem; color: var(--ink-soft); max-width: 42rem; }
+
+.ch-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  padding: .3rem .8rem;
+  border-radius: 999px;
+  color: #fff;
+  background: var(--bc, var(--ink));
+  margin-bottom: .8rem;
+}
+
+/* ---------- Grid de artículos ---------- */
+.ch-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+/* Artículo RSS */
+.rss-article {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  transition: transform .15s, box-shadow .15s, border-color .15s;
+  text-decoration: none;
+  color: var(--ink);
+}
+.rss-article:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(27,39,51,.1);
+  border-color: var(--ac, var(--naranja));
+}
+.rss-article .art-meta {
+  font-family: var(--mono);
+  font-size: .67rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ac, var(--naranja));
+}
+.rss-article h3 {
+  font-size: 1rem;
+  line-height: 1.3;
+  font-family: var(--body);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+.rss-article p {
+  font-size: .87rem;
+  color: var(--ink-soft);
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.art-cta {
+  font-family: var(--mono);
+  font-size: .7rem;
+  letter-spacing: .08em;
+  color: var(--ac, var(--naranja));
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  margin-top: .2rem;
+}
+.art-cta::after { content: "→"; }
+
+/* ---------- Skeleton loader ---------- */
+.rss-skeleton {
+  background: linear-gradient(90deg, #E8ECF0 25%, #F4F6F8 50%, #E8ECF0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: var(--radius);
+  height: 160px;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% center; }
+  100% { background-position: -200% center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rss-skeleton { animation: none; background: #E8ECF0; }
+}
+
+/* Estado de error */
+.rss-error {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  font-size: .9rem;
+  color: var(--ink-soft);
+}
+.rss-error a { color: var(--azul); text-decoration: underline; }
+
+/* ---------- Tips estáticos ---------- */
+.tips-static { margin-bottom: 3.5rem; }
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+}
+.tip-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+.tip-card.tip-critical {
+  border-color: var(--naranja);
+  background: #FFF8F3;
+}
+.tip-icon {
+  width: 46px; height: 46px;
+  border-radius: 11px;
+  background: #fff;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--ti, var(--ink));
+}
+.tip-icon svg { width: 24px; height: 24px; }
+.tip-tag {
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--tt, var(--ink-soft));
+}
+.tip-card h3 {
+  font-size: 1rem;
+  font-family: var(--body);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.3;
+}
+.tip-card p { font-size: .88rem; color: var(--ink-soft); line-height: 1.55; }
+.tip-card code {
+  font-family: var(--mono);
+  font-size: .82em;
+  background: #E8ECF0;
+  padding: .1em .35em;
+  border-radius: 4px;
+  color: var(--ink);
+}
+
+/* ---------- Portales gobierno ---------- */
+.gov-links { margin-bottom: 3.5rem; }
+.gov-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.gov-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform .15s, border-color .15s, box-shadow .15s;
+  text-decoration: none;
+  color: var(--ink);
+}
+.gov-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gi, var(--azul));
+  box-shadow: 0 8px 20px rgba(27,39,51,.09);
+}
+.gov-icon {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  background: #fff;
+  border: 1px solid var(--line);
+  display: grid;
+  place-items: center;
+  color: var(--gi, var(--azul));
+}
+.gov-icon svg { width: 22px; height: 22px; }
+.gov-card strong { display: block; font-size: .97rem; line-height: 1.2; }
+.gov-card span { font-family: var(--mono); font-size: .67rem; letter-spacing: .08em; color: var(--ink-soft); text-transform: uppercase; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+  .ch-grid { grid-template-columns: repeat(2, 1fr); }
+  .tips-grid { grid-template-columns: repeat(2, 1fr); }
+  .gov-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .ch-grid { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+  .gov-grid { grid-template-columns: 1fr; }
+  .gov-card { flex-direction: column; align-items: flex-start; }
+}

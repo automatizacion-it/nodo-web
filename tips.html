@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tips tecnológicos — NODO Soporte &amp; Redes</title>
+<meta name="description" content="Tips prácticos de seguridad informática, actualizaciones Windows y Linux, buenas prácticas de red y alertas de vulnerabilidades.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Archivo:wght@400;500;600;700&family=Chivo+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/rss.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231B2733'/><rect x='8' y='10' width='16' height='12' rx='2' fill='none' stroke='%23F0731F' stroke-width='2'/><rect x='13' y='6' width='6' height='4' fill='%23F0731F'/></svg>">
+</head>
+<body>
+
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a class="brand" href="index.html" aria-label="NODO inicio">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+        <rect x="2" y="2" width="28" height="28" rx="6" fill="var(--ink)"/>
+        <rect x="8" y="12" width="16" height="11" rx="2" fill="none" stroke="var(--naranja)" stroke-width="2.2"/>
+        <rect x="13" y="7" width="6" height="5" fill="var(--naranja)"/>
+      </svg>
+      <span class="brand-name">NODO<small>Soporte &amp; Redes</small></span>
+    </a>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <a href="index.html#servicios">Servicios</a>
+      <a href="noticias.html">Tech</a>
+      <a href="marcas.html">Marcas</a>
+      <a href="gobierno.html">Gobierno TI</a>
+      <a href="tips.html" class="active">Tips</a>
+      <a href="index.html#contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-wa header-cta" href="https://wa.me/573502605543" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+      WhatsApp
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="rss-hero" style="--hero-accent:var(--verde)">
+  <div class="wrap reveal">
+    <p class="eyebrow"><span class="led"></span> Consejos prácticos · Actualizados en vivo</p>
+    <h1>Tips <em>tecnológicos</em></h1>
+    <p class="lead">Seguridad, actualizaciones de Windows y Linux, buenas prácticas de red y alertas de vulnerabilidades. Lo que necesita saber para mantener su empresa protegida.</p>
+  </div>
+</section>
+
+<main class="rss-main">
+  <div class="wrap">
+
+    <!-- Tips fijos: cuadrícula de consejos rápidos escritos por NODO -->
+    <section class="tips-static reveal">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--verde)">Consejos NODO</span>
+        <h2>Lo más importante esta semana</h2>
+      </div>
+      <div class="tips-grid">
+
+        <div class="tip-card tip-critical">
+          <div class="tip-icon" style="--ti:var(--naranja)">
+            <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><line x1="12" y1="9" x2="12" y2="13" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="16" r=".8" fill="currentColor"/></svg>
+          </div>
+          <span class="tip-tag" style="--tt:var(--naranja)">🔴 Crítico · Seguridad</span>
+          <h3>Active las actualizaciones automáticas ahora</h3>
+          <p>El 80% de los ataques exitosos explotan vulnerabilidades que ya tenían parche disponible. En Windows: <code>Inicio → Configuración → Windows Update → Activar</code>. En Linux: <code>sudo apt upgrade -y</code>.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon" style="--ti:var(--azul)">
+            <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <span class="tip-tag" style="--tt:var(--azul)">Windows</span>
+          <h3>Desactive escritorio remoto si no lo usa</h3>
+          <p>RDP (puerto 3389) es la puerta más atacada en redes empresariales. Si no lo necesita: <code>Panel de control → Sistema → Configuración de acceso remoto → Desactivar</code>.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon" style="--ti:var(--cafe)">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" d="M19.07 4.93A10 10 0 0 0 4.93 19.07M19.07 19.07A10 10 0 0 0 4.93 4.93"/></svg>
+          </div>
+          <span class="tip-tag" style="--tt:var(--cafe)">Redes</span>
+          <h3>Cambie las contraseñas de fábrica del router</h3>
+          <p>El 60% de los routers empresariales en Colombia aún usan <code>admin/admin</code>. Acceda a <code>192.168.1.1</code> o <code>192.168.0.1</code>, entre a Administración y cambie la clave ahora mismo.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon" style="--ti:var(--verde)">
+            <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/></svg>
+          </div>
+          <span class="tip-tag" style="--tt:var(--verde)">Linux</span>
+          <h3>Revise los puertos abiertos en el servidor</h3>
+          <p>Ejecute <code>ss -tlnp</code> (o <code>netstat -tulnp</code>) para ver qué servicios están escuchando. Todo puerto no reconocido es una bandera roja. Cierre con <code>ufw deny [puerto]</code>.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon" style="--ti:var(--azul)">
+            <svg viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M12 2a3 3 0 0 0-3 3v1H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2V5a3 3 0 0 0-3-3Z"/><path fill="none" stroke="currentColor" stroke-width="2" d="m9 12 2 2 4-4"/></svg>
+          </div>
+          <span class="tip-tag" style="--tt:var(--azul)">Contraseñas</span>
+          <h3>Use frases de paso, no contraseñas</h3>
+          <p><code>Mi#Perro$LlamaRex2024</code> es más segura que <code>Xk9@!</code> y más fácil de recordar. Las frases de 4 palabras con números resisten ataques de diccionario durante millones de años.</p>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon" style="--ti:var(--naranja)">
+            <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <span class="tip-tag" style="--tt:var(--naranja)">UPS</span>
+          <h3>Pruebe su UPS antes de que falle la luz</h3>
+          <p>Presione el botón de prueba mensualmente. Si el zumbido dura menos de 1 minuto, la batería necesita reemplazo. Una batería muerta es peor que no tener UPS: falsa sensación de protección.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RSS: Seguridad - Krebs on Security -->
+    <section class="rss-channel reveal"
+      data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fkrebsonsecurity.com%2Ffeed%2F&count=4"
+      data-color="var(--naranja)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--naranja)">Krebs on Security</span>
+        <h2>Alertas de ciberseguridad</h2>
+        <p class="ch-desc">Brian Krebs — la fuente más confiable para vulnerabilidades activas, brechas de datos y amenazas reales.</p>
+      </div>
+      <div class="ch-grid" id="feed-krebs">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- RSS: Bleeping Computer -->
+    <section class="rss-channel reveal"
+      data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fwww.bleepingcomputer.com%2Ffeed%2F&count=4"
+      data-color="var(--azul)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--azul)">Bleeping Computer</span>
+        <h2>Actualizaciones Windows y Linux</h2>
+        <p class="ch-desc">Parches del martes, vulnerabilidades activas y guías paso a paso para proteger sistemas Windows y Linux.</p>
+      </div>
+      <div class="ch-grid" id="feed-bleeping">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- RSS: The Hacker News -->
+    <section class="rss-channel reveal"
+      data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.feedburner.com%2FTheHackersNews&count=4"
+      data-color="var(--verde)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--verde)">The Hacker News</span>
+        <h2>Vulnerabilidades y amenazas activas</h2>
+        <p class="ch-desc">CVEs recientes, exploits en circulación y guías de mitigación para administradores de sistemas y redes.</p>
+      </div>
+      <div class="ch-grid" id="feed-hackernews">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+    <!-- RSS: Ars Technica (redes y sistemas) -->
+    <section class="rss-channel reveal"
+      data-feed="https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Ffeeds.arstechnica.com%2Farstechnica%2Findex&count=4"
+      data-color="var(--cafe)">
+      <div class="ch-head">
+        <span class="ch-badge" style="--bc:var(--cafe)">Ars Technica</span>
+        <h2>Sistemas, redes y hardware empresarial</h2>
+        <p class="ch-desc">Análisis técnicos profundos sobre redes, servidores, almacenamiento y tendencias que afectan las oficinas reales.</p>
+      </div>
+      <div class="ch-grid" id="feed-ars">
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+        <div class="rss-skeleton"></div><div class="rss-skeleton"></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<section class="news-teaser">
+  <div class="wrap news-teaser-inner reveal">
+    <div>
+      <p class="eyebrow eyebrow-light">¿Sospecha que tienen un problema de seguridad?</p>
+      <h2>Diagnóstico de seguridad sin costo.</h2>
+      <p>Revisamos su red, sus equipos y sus contraseñas. Le decimos exactamente qué arreglar y cuánto cuesta antes de tocar nada.</p>
+    </div>
+    <a class="btn btn-wa" href="https://wa.me/573502605543?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20de%20seguridad" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Z"/></svg>
+      Pedir diagnóstico
+    </a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <p>© <span id="year"></span> NODO Soporte &amp; Redes · Bogotá, Colombia</p>
+    <p class="mono">TIPS ACTUALIZADOS · RSS EN VIVO <span class="led led-green"></span></p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/573502605543" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-2-1.2 7.4 7.4 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5a1.7 1.7 0 0 0 .3-.4.5.5 0 0 0 0-.4c0-.1-.6-1.4-.8-1.9s-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.1 5 5 0 0 0 1.1 2.7 11.4 11.4 0 0 0 4.4 3.9 14.6 14.6 0 0 0 1.5.5 3.5 3.5 0 0 0 1.6.1 2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+<script src="js/rss.js"></script>
+</body>
+</html>
